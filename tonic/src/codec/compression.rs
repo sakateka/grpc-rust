@@ -222,7 +222,7 @@ pub(crate) fn compress(
             let mut gzip_encoder = GzEncoder::new(
                 &decompressed_buf[0..len],
                 // FIXME: support customizing the compression level
-                flate2::Compression::new(6),
+                flate2::Compression::new(1),
             );
             std::io::copy(&mut gzip_encoder, &mut out_writer)?;
         }
